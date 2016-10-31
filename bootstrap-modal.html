@@ -1,0 +1,62 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Bootstrap Modal Validation</title>
+			<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+			<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+			<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+			<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+			<script src="jquery.validationengine.min.js"></script>
+			<style>
+				.btn-huuuuuge { font-size: 3em; padding: 30px; }
+				.block { display: block; }
+				.centered-on-screen { position: absolute; top: 30%; left: 46%;  }
+			</style>
+			<script>
+				$(function(){
+					/* bootstrap modal */
+                    $('#modalBsValidation').on('shown', function () {
+                      
+                      /* initialize validation engine here */
+                      $('#btnBsModalSave').validationEngine({
+                          targetContainer: $("#modalBsValidation"),
+                          onSuccess: 'alert("Validation Complete no Errors.")'
+                      });
+
+                    })
+				});
+			</script>
+		</head>
+		<body>
+			<a href="#modalBsValidation" role="button" class="btn btn-huuuuuge block centered-on-screen" data-toggle="modal">MODAL</a>
+
+		    <!-- bootstrap modal markup -->
+		    <div id="modalBsValidation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		     <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		        <h3 id="myModalLabel">Modal header</h3>
+		     </div>
+		     <div class="modal-body">
+		        <form>
+		          <fieldset>
+		              <label for="name">Name</label>
+		              <input type="text" name="name" id="name" class="required" />
+		              <label for="email">Email</label>
+		              <input type="text" name="email" id="email" value="" class="" />
+		              <label for="password">Password</label>
+		              <input type="password" name="password" id="password" value="" class="" />
+		              <br />
+		              <label for="myText">Body</label>
+		              <br />
+		              <textarea id="myText" class="required" data-limit="200"></textarea>
+		          </fieldset>
+		      </form>
+		     </div>
+		     <div class="modal-footer">
+		        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		        <button id="btnBsModalSave" class="btn btn-primary">Save changes</button>
+		     </div>
+		    </div>
+		</body>
+	</html>

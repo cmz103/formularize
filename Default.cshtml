@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Validation Engine";
+}
+
+<div class="row">
+    <div class="col-md-4">
+
+        @*required fields*@
+        <form>
+            <legend>Required Fields (on click)</legend>
+            <div class="form-group">
+                <label for="requiredText">Required Text Field</label>
+                <input type="text" id="requiredText" class="required form-control" />
+            </div>
+            <div class="form-group">
+                <label for="requiredPassword">Required Password Field</label>
+                <input type="password" id="requiredPassword" class="required form-control" />
+            </div>
+            <div class="form-group">
+                <label for="requiredTextarea">Required Textarea</label>
+                <textarea id="requiredTextarea" class="required form-control" data-limit="500" placeholder="Your feedback here"></textarea>
+
+<div id="wrapperLeaveFeedback">
+        <hr>
+        <div class="row-fluid">
+<label for="feedbackBody">Required Textarea</label>
+<textarea class="required" id="feedbackBody" placeholder="Your feedback here" data-limit="500"></textarea>
+<button class="btn btn-primary" id="btnSubmitFeedback">Submit Feedback to Support Team</button>
+            </div>
+        </div>
+
+            </div>
+            <div class="form-group">
+                <label for="requiredSelect">Required Select Box</label>
+                <select id="requiredSelect" class="required form-control">
+                    <option value=""></option>
+                    <option value="1">123456789123456789</option>
+                    <option value="2">123456789123456789</option>
+                    <option value="3">123456789123456789</option>
+                </select>
+            </div>
+
+            <button class="btn btn-default multipleButtons">Button 1</button>
+            <button class="btn btn-default multipleButtons">Button 2</button>
+            <button class="btn btn-default multipleButtons">Button 3</button>
+
+        </form>
+
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        $(function () {
+            $('.multipleButtons').validationEngine({
+                targetContainer: $('form'),
+                onSuccess: function () {
+                    alert("Validation Complete, all required fields have been filled.")
+                },
+                onBeforeSubmit: function () {
+                    alert('before!');
+                    $('#requiredText').val('.357 Magnum');
+                }
+            });
+
+            $('#btnSubmitFeedback').validationEngine({
+                targetContainer: $("#wrapperLeaveFeedback"),
+                onBeforeSubmit: function () {
+                    //sanitize
+                    alert('before sanitize')
+                    //                $("#feedbackBody").val(htmlEncode($("#feedbackBody").val()));
+                },
+                onSuccess: function () {
+                    console.log("success");
+                    var body = $("#feedbackBody").val(),
+                        subj = $("#feedbackSection option:selected").text();
+
+                    
+                }
+            });
+
+        });
+    </script>
+}
