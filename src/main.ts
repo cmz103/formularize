@@ -1,4 +1,1 @@
-function hello(compiler: string) {
-    console.log(`Hello from ${compiler}`);
-}
-hello("TypeScript!@@@@");
+let form = new Form("form", "inputSubmit");
