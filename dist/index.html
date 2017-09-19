@@ -1,24 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Boilerplate</title>
-        <link href="styles.css" type="text/css" rel="stylesheet"/>
-    </head>
-    <body>
-        <p>Prereqs: Gulp-CLI, Node, Npm</p>
-        <ol>
-            <li>Gulp: https://www.npmjs.com/package/gulp</li>
-            <li>Gulp Typescript: https://www.npmjs.com/package/gulp-typescript</li>
-            <li>Typings: https://www.npmjs.com/package/typingsgulp</li>
-            <li>Gulp Sass: https://www.npmjs.com/package/gulp-sass</li>
-            <li>Browsersync: https://browsersync.io/</li>
-            <li>Todo: https://www.npmjs.com/package/gulp-cli</li>
-            <li>Todo: https://www.npmjs.com/package/gulp-sourcemaps</li>
-            <li>Todo: https://www.npmjs.com/package/gulp-uglify</li>
-            <li>Todo: https://www.npmjs.com/package/gulp-clean-css</li>
-        </ol>
-        <script src="main.js"></script>
-        <script src="formularize.js"></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Formularize Demo Page</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+    <!-- handlebars template -->
+    <script id="formElements" type="text/x-handlebars-template">​
+        <div class="container">
+            <h1>Formularize Demo Page</h1>
+            <form id="form">
+                {{~#each this ~}}
+                {{#if value}}
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input 
+                                id="{{id}}"     
+                                type="{{type}}"
+                                {{#if name}}name="{{name}}"{{/if}} 
+                                {{#if value}}value="{{value}}"{{/if}} 
+                                {{#if class}}class="form-check-input {{class}}"{{/if}} 
+                                {{#if disabled}}disabled{{/if}} 
+                                {{#if readonly}}readonly{{/if}}
+                                {{#if checked}}checked{{/if}}
+                            />
+                            {{label}}
+                        </label>
+                    </div>
+                {{else}}
+                    <div class="form-group">
+                        <label for="{{id}}">{{label}}</label>
+                        <input 
+                            id="{{id}}" 
+                            type="{{type}}" 
+                            {{#if name}}name="{{name}}"{{/if}} 
+                            {{#if value}}value="{{value}}"{{/if}} 
+                            {{#if class}}class="{{class}}"{{/if}} 
+                            {{#if disabled}}disabled{{/if}} 
+                            {{#if readonly}}readonly{{/if}}
+                        />
+                    </div>​
+                {{/if}}
+                {{~/each ~}}​
+            </form>
+        </div>
+    </script>
+
+    <script>
+        var data = [
+            { id: "inputText", label: "Text", type: "text", class: "form-control" },
+            { id: "inputPassword", label: "Password", type: "password", class: "form-control" },
+            { id: "inputEmail", label: "Email", type: "email", class: "form-control" },
+            { id: "inputSearch", label: "Search", type: "search", class: "form-control" },
+            { id: "inputTel", label: "Tel", type: "tel", class: "form-control" },
+            { id: "inputUrl", label: "Url", type: "url", class: "form-control" },
+            { id: "inputWeek", label: "Week", type: "week", class: "form-control" },
+            { id: "inputMonth", label: "Month", type: "month", class: "form-control" },
+            { id: "inputNumber", label: "Number", type: "number", class: "form-control" },
+            { id: "inputRange", label: "Range", type: "range", class: "form-control" },
+            { id: "inputColor", label: "Color", type: "color" },
+            { id: "inputTime", label: "Time", type: "time", class: "form-control" },
+            { id: "inputDate", label: "Date", type: "date", class: "form-control" },
+            { id: "inputDateTimeLocal", label: "DateTimeLocal", type: "datetime-local", class: "form-control" },
+            { id: "inputRadio", label: "I'm a radio button", type: "radio", name: "gender", value: "male" },
+            { id: "inputCheckbox", label: "Is this a checkbox?", type: "checkbox", name: "true", value: "true", checked: "checked" },
+            { id: "inputSubmit", type: "submit", value: "Submit", class: "btn btn-primary" },
+            { id: "inputReset", type: "reset", value: "Reset", class: "btn btn-light" },
+            { id: "inputButton", type: "button", value: "Button", class: "btn btn-light" },
+        ];
+        var templateScript = $("#formElements").html();
+        var template = Handlebars.compile(templateScript);
+        $(document.body).append(template(data));
+    </script>   
+
+    <script src="formularize.js"></script>
+    <script src="main.js"></script>
+</body>
+
 </html>
