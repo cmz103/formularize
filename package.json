@@ -1,0 +1,22 @@
+{
+  "name": "formularize",
+  "version": "1.0.0",
+  "description": "Typescript class to handle common web form functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cedric Maniquiz",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bootstrap-select": "^1.11.1",
+    "@types/jquery": "^3.2.12",
+    "@types/jqueryui": "^1.11.36",
+    "@types/lodash": "^4.14.74",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-typescript": "^3.2.2",
+    "typescript": "^2.5.2"
+  }
+}

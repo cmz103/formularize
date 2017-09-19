@@ -1,0 +1,12 @@
+// compiler options
+// https://www.typescriptlang.org/docs/handbook/compiler-options.html
+{
+    "files": [
+        "src/main.ts",
+        "src/formularize.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}
