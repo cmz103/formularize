@@ -1,5 +1,6 @@
 // compiler options
 // https://www.typescriptlang.org/docs/handbook/compiler-options.html
+// install typescript globally first
 // create tsconfig 'tsc --init'
 {
     "compilerOptions": {
