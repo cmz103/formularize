@@ -1,0 +1,13 @@
+// linting options
+// https://www.npmjs.com/package/tslint
+// install tslint globally first
+// create tsconfig 'tslint --init'
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
+}
