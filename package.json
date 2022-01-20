@@ -4,10 +4,11 @@
 	"description": "Typescript class to handle common web form functions",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "tsc"
 	},
 	"author": "Cedric Maniquiz",
 	"license": "ISC",
+
 	"devDependencies": {
 		"@types/bootstrap-select": "^1.11.1",
 		"@types/jquery": "^3.2.12",
