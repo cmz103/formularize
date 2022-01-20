@@ -1,16 +1,5 @@
+# Prerequisites
+1. WSL 2 (Ubuntu 20.04 LTS), Windows 10, VSCode (with Remote - Containers extension), Docker Desktop with WSL 2 Backend Enabled, and Git config set up globally
 # Run
-1. `npm i gulp-cli -g`
-2. `npm i`
-3. `gulp`
-
-
-# Packages
-[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
-
-[gulp](https://www.npmjs.com/package/gulp)
-
-[gulp-typescript](https://github.com/DefinitelyTyped/DefinitelyTyped)
-
-[gulp-sass](https://www.npmjs.com/package/gulp-sass)
-
-[Browsersync](https://browsersync.io/)
+1. Clone from VSCode, using "Remote - Containers" extension
+2. Then choose, "Clone Repository in Container Volume"
